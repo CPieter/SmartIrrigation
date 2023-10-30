@@ -1,2 +1,2 @@
 # SmartIrrigation
-Backend for smart irrigation system
+.NET Core solution of the backend for the smart irrigation system.
