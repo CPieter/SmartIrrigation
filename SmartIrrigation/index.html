@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irrigation Decision Algorithm</title> 
+</head>
+<body>
+    <div id="main" class="box">
+        <h1>Irrigation Decision Algorithm</h1>
+        
+        <form id="configurationForm">
+            Demo Mode:
+            <label class="switch">
+                <input name="demoMode" type="checkbox" id="demoMode" value="True">
+                <span class="slider round"></span>
+            </label><br><input name="demoMode" type="hidden" value="False">
+        
+            <label for="soilType">Soil type:</label>
+            <select name="soilType" id="soilType">
+                <option value="0">Sand</option>
+                <option value="1">Loam</option>
+                <option value="2">Clay</option>
+            </select><br>
+    
+            <label for="irrigationOutput">Irrigation Output</label>
+            <input type="number" id="irrigationOutput" name="irrigationOutput" min="0" max="100" value="1"/>mm/min<br>
+            
+        </form>
+    
+        <form id="rangeForm">
+            <label for="temperature">Temperature:</label>
+            <input name="temperature" type="range" id="temperature" min="-20" max="40" value="10" disabled>
+            <span id="temperatureValue">10</span>°</C>
+            <span id="temperatureThreshold" class="threshold"></span><span class="threshold">°C</span>
+            <br>
+        
+            <label for="humidity">Humidity:</label>
+            <input name="humidity" type="range" id="humidity" min="0" max="1" value="0.5" step="0.01" disabled class="percentage">
+            <span id="humidityValue" class="percentage">50</span>%
+            <span id="humidityThreshold" class="threshold percentage"></span><span class="threshold">%</span>
+            <br>
+        
+            <label for="windSpeed">Wind Speed:</label>
+            <input name="windSpeed" type="range" id="windSpeed" min="0" max="20" value="10" disabled>
+            <span id="windSpeedValue">10</span>m/s
+            <span id="windSpeedThreshold" class="threshold"></span><span class="threshold">m/s</span>
+            <br>
+        
+            <label for="moisture">Moisture:</label>
+            <input name="moisture" type="range" id="moisture" min="0" max="1" value="0.5" step="0.01" disabled class="percentage">
+            <span id="moistureValue" class="percentage">50</span>%
+            <span id="lowerMoistureThreshold" class="threshold percentage"></span><span class="threshold">%</span>
+            <span class="threshold">/</span>
+            <span id="upperMoistureThreshold" class="threshold percentage"></span><span class="threshold">%</span>
+            <br>
+        
+            <label for="precipitationProbability">Chance of Precipitation:</label>
+            <input name="precipitationProbability" type="range" id="precipitationProbability" min="0" max="1" value="0.5" step="0.01" disabled class="percentage">
+            <span id="precipitationProbabilityValue" class="percentage">50</span>% (next 3h)
+            <br>
+        
+            <label for="rainfall">Predicted Precipitation Amount:</label>
+            <input name="rainfall" type="range" id="rainfall" min="0" max="100" value="10" disabled>
+            <span id="rainfallValue">10</span>mm (next 3h)<br>
+        </form>
+        
+        <br>
+        Irrigate for 
+        <span id="minutesToIrrigate">-1</span>
+        minutes
+    </div>
+    <div id="diagram" class="box">
+        <img src="algorithm-diagram.jpg" style="width: 100%" alt="Algorithm Diagram">
+    </div>
+</body>
+</html>
